@@ -225,6 +225,13 @@
     try { localStorage.setItem('tv_website_page', pageId); } catch (e) {}
     window.location.href = '/';
   }
+  function openContactModal() {
+    try {
+      sessionStorage.setItem('tv_open_modal', 'true');
+      localStorage.setItem('tv_website_page', 'home');
+    } catch (e) {}
+    window.location.href = '/';
+  }
   function toggleDrawer() {
     var d = document.getElementById('mobileDrawer');
     if (d) d.classList.toggle('open');
@@ -247,7 +254,7 @@
     <a class="nav-link" href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a>
     <a class="nav-link active" href="/insights/">Insights</a>
   </div>
-  <a class="nav-cta nav-cta-desktop" href="/" onclick="event.preventDefault(); navTo('contact');">Get a Proposal</a>
+  <a class="nav-cta nav-cta-desktop" href="/" onclick="event.preventDefault(); openContactModal();">Get a Proposal</a>
   <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -264,7 +271,7 @@
     <a href="/" onclick="event.preventDefault(); navTo('finance');">Corporate Finance</a>
     <a href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a>
     <a href="/insights/">Insights</a>
-    <a href="/" onclick="event.preventDefault(); navTo('contact');">Get a Proposal</a>
+    <a href="/" onclick="event.preventDefault(); openContactModal();">Get a Proposal</a>
   </div>
 </div>
 
@@ -304,35 +311,66 @@
       </div>
     </a>
 
-    <div class="article-card article-card-coming">
+    <a class="article-card" href="/insights/india-entry-decision-one-do-you-need-entity/">
       <div class="article-card-header">
-        <div class="article-tag">Coming Soon</div>
-        <h2>The Real Cost of India Entry — Year One Budget</h2>
+        <div class="article-tag">India Entry Series  ·  Part 2</div>
+        <h2>Decision One: Do You Actually Need an Entity in India Yet?</h2>
       </div>
       <div class="article-card-body">
-        <p>What does the first 12 months of operating an Indian subsidiary actually cost? Setup fees, ongoing compliance, salaries, real estate, infrastructure — the numbers foreign CFOs need before pitching the India budget internally.</p>
+        <p>Entity, EOR, or SNRR — choosing how to employ and operate in India before you incorporate. Most companies answer the entity question by reflex, and the reflex quietly sets the cost of every subsequent choice. Three routes, three questions, and the two expensive mistakes most foreign companies make.</p>
+        <div>
+          <div class="article-meta">
+            <span><strong>Abhijit Shripati Bhat</strong></span>
+            <span>·</span>
+            <span>27 June 2026</span>
+            <span>·</span>
+            <span>7 min read</span>
+          </div>
+          <div class="read-more">Read article →</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="article-card article-card-coming">
+      <div class="article-card-header">
+        <div class="article-tag">India Entry Series  ·  Part 3 — Coming Soon</div>
+        <h2>Decision Two: Which Entity Structure — Pvt Ltd, LLP, Branch, Liaison, or Project Office</h2>
+      </div>
+      <div class="article-card-body">
+        <p>Five foreign entity structures available in India, and which one fits which situation. Private Limited (the default that is right 70% of the time), LLP (right 10% of the time but always evaluated), and the BO / LO / PO triad (right in specific use cases but often misapplied). The decision turns on what you intend to do, not what is most common.</p>
+        <div class="article-meta"><span>Publishing in early July 2026</span></div>
+      </div>
+    </div>
+
+    <div class="article-card article-card-coming">
+      <div class="article-card-header">
+        <div class="article-tag">India Entry Series  ·  Part 4 — Coming Soon</div>
+        <h2>Decision Three: Where to Set Up — Choosing the Right Indian City for Your Operations</h2>
+      </div>
+      <div class="article-card-body">
+        <p>Bengaluru, Hyderabad, Mumbai, Pune, Chennai, NCR — each Indian city has a different talent pool, cost profile, and regulatory rhythm. How foreign CFOs should think about location: talent availability, industry cluster proximity, real estate, and the often-overlooked social environment for senior hires.</p>
         <div class="article-meta"><span>Publishing soon</span></div>
       </div>
     </div>
 
     <div class="article-card article-card-coming">
       <div class="article-card-header">
-        <div class="article-tag">Coming Soon</div>
-        <h2>Subsidiary vs Branch vs LLP vs Liaison Office — A Foreign Investor's Decision Guide</h2>
+        <div class="article-tag">India Entry Series  ·  Part 5 — Coming Soon</div>
+        <h2>Decision Four: Capital and Funding Structure — Equity, ECB, or Intercompany Credit</h2>
       </div>
       <div class="article-card-body">
-        <p>The five foreign entity structures available in India, when each is the right choice, and the operational and compliance differences that matter most in year one and beyond.</p>
+        <p>How to capitalise an Indian subsidiary correctly the first time. Equity contribution, External Commercial Borrowing (ECB), intercompany trade credit — the FEMA constraints on each, the transfer pricing implications, and how under-capitalisation creates tax department scrutiny that is expensive to unwind later.</p>
         <div class="article-meta"><span>Publishing soon</span></div>
       </div>
     </div>
 
     <div class="article-card article-card-coming">
       <div class="article-card-header">
-        <div class="article-tag">Coming Soon</div>
-        <h2>India Compliance Calendar — What Foreign CFOs Miss in Year One</h2>
+        <div class="article-tag">India Entry Series  ·  Part 6 — Coming Soon</div>
+        <h2>Decision Five: Who Owns Day-to-Day Compliance — Local CFO, Big Firm, or Outsourced Specialist</h2>
       </div>
       <div class="article-card-body">
-        <p>Monthly, quarterly, and annual compliance obligations for foreign-owned Indian subsidiaries — and the ones that trip up Group HQs in their first year.</p>
+        <p>The three operating models for India compliance and finance. When to hire a local CFO (rarely in year one), when a large compliance firm is right (specific situations), and when a specialist outsourced partner is the most economical match — including the cost trade-offs and operational realities of each.</p>
         <div class="article-meta"><span>Publishing soon</span></div>
       </div>
     </div>
@@ -386,7 +424,7 @@
         <li><a href="/insights/">All Insights</a></li>
         <li><a href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a></li>
         <li><a href="/" onclick="event.preventDefault(); navTo('finance');">Corporate Finance</a></li>
-        <li><a href="/" onclick="event.preventDefault(); navTo('contact');">Contact</a></li>
+        <li><a href="/" onclick="event.preventDefault(); openContactModal();">Contact</a></li>
       </ul>
     </div>
   </div>

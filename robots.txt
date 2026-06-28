@@ -1,4 +1,59 @@
+# TrueVector India Partners — robots.txt
+# Default: allow all standard search engines
 User-agent: *
+Allow: /
+
+# Explicitly welcome AI search engines and LLM crawlers
+# These crawl content for use in ChatGPT, Claude, Perplexity, Gemini and other AI search products
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
 Allow: /
 
 Sitemap: https://www.truevectorindia.com/sitemap.xml

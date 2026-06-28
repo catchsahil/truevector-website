@@ -2421,6 +2421,18 @@ function App() {
   const openModal = (title) => { setModalTitle(title || 'Start Your India Journey'); setModalOpen(true); };
   const closeModal = () => setModalOpen(false);
 
+  // External pages (e.g. /insights/) can request the contact modal to open
+  // by setting sessionStorage 'tv_open_modal' before navigating to /
+  React.useEffect(() => {
+    try {
+      if (sessionStorage.getItem('tv_open_modal') === 'true') {
+        sessionStorage.removeItem('tv_open_modal');
+        // Defer to ensure modal mounts cleanly after initial render
+        setTimeout(() => openModal('Start Your India Journey'), 100);
+      }
+    } catch (e) {}
+  }, []);
+
   const navigate = (p) => {
     if (p === 'contact') { openModal(); return; }
     setPage(p);

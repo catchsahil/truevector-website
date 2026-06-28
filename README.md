@@ -1,8 +1,13 @@
-# TrueVector India Partners
+# TrueVector India Partners — Website v19
 
-Official website for TrueVector India Partners Private Limited.
+## v19 Changes (May 2026)
+- **Country field mapping fix:** Country/Region now submits to Contact object (0-1) instead of Company object (0-2), matching the updated HubSpot form configuration. This ensures Country appears directly on the Contact record for cleaner data and easier filtering.
 
-**Live URL:** https://www.truevectorindia.com (once DNS configured)
+## v18 Changes
+- **Form backend migration:** FormSubmit.co → HubSpot Forms API (formId `119e463c-434f-488f-b32e-7433c4a23fe7`)
+- **Lead capture upgrade:** Form submissions now auto-create contact records in HubSpot CRM with email notification to sahil@truevectorindia.com
+- **GDPR consent:** Added required privacy consent checkbox on the enquiry form
+- **Privacy Policy updated:** Replaced FormSubmit data processor entry with HubSpot
 
 ## Deploy to GitHub Pages
 
