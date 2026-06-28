@@ -2422,13 +2422,21 @@ function App() {
   const closeModal = () => setModalOpen(false);
 
   // External pages (e.g. /insights/) can request the contact modal to open
-  // by setting sessionStorage 'tv_open_modal' before navigating to /
+  // by navigating to "/?contact=1" — bulletproof across cache and browsers
   React.useEffect(() => {
     try {
-      if (sessionStorage.getItem('tv_open_modal') === 'true') {
+      var params = new URLSearchParams(window.location.search);
+      var shouldOpen = params.get('contact') === '1' || sessionStorage.getItem('tv_open_modal') === 'true';
+      if (shouldOpen) {
         sessionStorage.removeItem('tv_open_modal');
+        // Clean the URL so refresh doesn't re-open the modal
+        if (params.get('contact') === '1') {
+          params.delete('contact');
+          var clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+          window.history.replaceState({}, '', clean);
+        }
         // Defer to ensure modal mounts cleanly after initial render
-        setTimeout(() => openModal('Start Your India Journey'), 100);
+        setTimeout(function() { openModal('Start Your India Journey'); }, 150);
       }
     } catch (e) {}
   }, []);
