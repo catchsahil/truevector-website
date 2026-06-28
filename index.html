@@ -1890,7 +1890,7 @@ function AboutPage({ onNavigate }) {
 /* ════════════════════════════════════════════════════
    PAGE: CONTACT
 ══════════════════════════════════════════════════════ */
-function ContactPage() {
+function ContactPage({ onNavigate }) {
 
   return (
     <>
@@ -2421,26 +2421,6 @@ function App() {
   const openModal = (title) => { setModalTitle(title || 'Start Your India Journey'); setModalOpen(true); };
   const closeModal = () => setModalOpen(false);
 
-  // External pages (e.g. /insights/) can request the contact modal to open
-  // by navigating to "/?contact=1" — bulletproof across cache and browsers
-  React.useEffect(() => {
-    try {
-      var params = new URLSearchParams(window.location.search);
-      var shouldOpen = params.get('contact') === '1' || sessionStorage.getItem('tv_open_modal') === 'true';
-      if (shouldOpen) {
-        sessionStorage.removeItem('tv_open_modal');
-        // Clean the URL so refresh doesn't re-open the modal
-        if (params.get('contact') === '1') {
-          params.delete('contact');
-          var clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-          window.history.replaceState({}, '', clean);
-        }
-        // Defer to ensure modal mounts cleanly after initial render
-        setTimeout(function() { openModal('Start Your India Journey'); }, 150);
-      }
-    } catch (e) {}
-  }, []);
-
   const navigate = (p) => {
     if (p === 'contact') { openModal(); return; }
     setPage(p);
@@ -2457,7 +2437,7 @@ function App() {
     payroll: <PayrollPage onNavigate={navigate} />,
     finance: <FinancePage onNavigate={navigate} />,
     'why-india': <WhyIndiaPage onNavigate={navigate} />,
-    contact: <ContactPage />,
+    contact: <ContactPage onNavigate={navigate} />,
     privacy: <PrivacyPage onNavigate={navigate} />,
     terms: <TermsPage onNavigate={navigate} />,
     disclaimer: <DisclaimerPage onNavigate={navigate} />,

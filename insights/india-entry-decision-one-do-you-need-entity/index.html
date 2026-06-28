@@ -417,11 +417,9 @@
     try { localStorage.setItem('tv_website_page', pageId); } catch (e) {}
     window.location.href = '/';
   }
-  function openContactModal() {
-    try {
-      sessionStorage.setItem('tv_open_modal', 'true');
-      localStorage.setItem('tv_website_page', 'home');
-    } catch (e) {}
+  function openContact() {
+    // Navigate to the ContactPage — a dedicated page with full contact form.
+    try { localStorage.setItem('tv_website_page', 'contact'); } catch (e) {}
     window.location.href = '/';
   }
   function toggleDrawer() {
@@ -446,7 +444,7 @@
     <a class="nav-link" href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a>
     <a class="nav-link active" href="/insights/">Insights</a>
   </div>
-  <a class="nav-cta nav-cta-desktop" href="/?contact=1">Get a Proposal</a>
+  <a class="nav-cta nav-cta-desktop" href="/" onclick="event.preventDefault(); openContact();">Get a Proposal</a>
   <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -463,7 +461,7 @@
     <a href="/" onclick="event.preventDefault(); navTo('finance');">Corporate Finance</a>
     <a href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a>
     <a href="/insights/">Insights</a>
-    <a href="/?contact=1">Get a Proposal</a>
+    <a href="/" onclick="event.preventDefault(); openContact();">Get a Proposal</a>
   </div>
 </div>
 
@@ -565,7 +563,7 @@
     <div class="cta-eyebrow">If You Are Evaluating India Entry</div>
     <h3>Get Decision One right before any incorporation document is signed</h3>
     <p>TrueVector India Partners helps foreign companies make this call with clarity, then set up, operate, and stay compliant in India once it is made. The advisory conversation is concrete — your business, your timeline, your numbers. The output is a clear recommendation between EOR, SNRR, and own entity, with the trade-offs spelled out.</p>
-    <a class="cta-button" href="/?contact=1">Schedule a Discovery Call →</a>
+    <a class="cta-button" href="/" onclick="event.preventDefault(); openContact();">Schedule a Discovery Call →</a>
   </aside>
 
 </article>
@@ -639,7 +637,7 @@
         <li><a href="/insights/">All Insights</a></li>
         <li><a href="/" onclick="event.preventDefault(); navTo('why-india');">Why India?</a></li>
         <li><a href="/" onclick="event.preventDefault(); navTo('finance');">Corporate Finance</a></li>
-        <li><a href="/?contact=1">Contact</a></li>
+        <li><a href="/" onclick="event.preventDefault(); openContact();">Contact</a></li>
       </ul>
     </div>
   </div>

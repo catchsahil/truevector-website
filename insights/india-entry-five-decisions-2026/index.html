@@ -297,11 +297,9 @@
     try { localStorage.setItem('tv_website_page', pageId); } catch (e) {}
     window.location.href = '/';
   }
-  function openContactModal() {
-    try {
-      sessionStorage.setItem('tv_open_modal', 'true');
-      localStorage.setItem('tv_website_page', 'home');
-    } catch (e) {}
+  function openContact() {
+    // Navigate to the ContactPage — a dedicated page with full contact form.
+    try { localStorage.setItem('tv_website_page', 'contact'); } catch (e) {}
     window.location.href = '/';
   }
   function toggleDrawer() {
@@ -442,7 +440,7 @@
     <div class="cta-eyebrow">If You Are Evaluating India</div>
     <h3>Work through the five decisions before any incorporation document is signed</h3>
     <p>At TrueVector India Partners, we work with foreign companies pre-incorporation to think through these five decisions. The conversation is concrete — your business, your timeline, your numbers. The output is a clear recommendation on each, with the trade-offs spelled out.</p>
-    <a class="cta-button" href="/?contact=1">Schedule a Discovery Call →</a>
+    <a class="cta-button" href="/" onclick="event.preventDefault(); openContact();">Schedule a Discovery Call →</a>
   </aside>
 
 </article>
